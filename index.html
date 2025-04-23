@@ -152,13 +152,13 @@
                 y: RUNNER_START_Y,
                 width: RUNNER_WIDTH,
                 height: RUNNER_HEIGHT,
-                // draw() {
-                //     if (gameOver) {
-                //         ctx.drawImage(crashImgage, this.x, this.y, this.width, this.height);
-                //     } else {
-                //         const frame = (timer % 60 > 30) ? runnerAImage : runnerBImage;
-                //         ctx.drawImage(frame, this.x, this.y, this.width, this.height);
-                //     }
+                draw() {
+                    if (gameOver) {
+                        ctx.drawImage(crashImgage, this.x, this.y, this.width, this.height);
+                    } else {
+                        const frame = (timer % 60 > 30) ? runnerAImage : runnerBImage;
+                        ctx.drawImage(frame, this.x, this.y, this.width, this.height);
+                    }
                 }
             };
 
@@ -169,9 +169,9 @@
                     this.width = OBSTACLE_WIDTH;
                     this.height = OBSTACLE_HEIGHT;
                 }
-                // draw() {
-                //     ctx.drawImage(obstacleImage, this.x, this.y, this.width, this.height);
-                // }
+                draw() {
+                    ctx.drawImage(obstacleImage, this.x, this.y, this.width, this.height);
+                }
             }
 
             const obstacles = [];
@@ -227,7 +227,7 @@
                         scoreSound.play();
                     }
                     if (isCollision(runner, obs)) {
-                        gameOver = true;
+                        gameOver = false;
                         bgmSound.pause();
                         defeatSound.play();
                     }
