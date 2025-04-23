@@ -82,7 +82,7 @@
         const OBSTACLE_HEIGHT = 50;
         const OBSTACLE_FREQUENCY = 90; // 프레임마다 생성 빈도
         const OBSTACLE_SPEED = 4;
-        const SCORE_PER_OBSTACLE = 100000000000000000000; // 장애물 당 점수
+        const SCORE_PER_OBSTACLE = 1000000000000000000; // 장애물 당 점수
         // 음원 및 이미지 경로 설정
         const ASSETS = {
             sounds: {
@@ -124,7 +124,7 @@
             const ctx = canvas.getContext('2d');
 
             let gameStarted = false;
-            let gameOver = true;
+            let gameOver = false;
             let timer = 0;
             let score = 0;
             let jump = false;
@@ -152,13 +152,13 @@
                 y: RUNNER_START_Y,
                 width: RUNNER_WIDTH,
                 height: RUNNER_HEIGHT,
-                draw() {
-                    if (gameOver) {
-                        ctx.drawImage(crashImage, this.x, this.y, this.width, this.height);
-                    } else {
-                        const frame = (timer % 60 > 30) ? runnerAImage : runnerBImage;
-                        ctx.drawImage(frame, this.x, this.y, this.width, this.height);
-                    }
+                // draw() {
+                //     if (gameOver) {
+                //         ctx.drawImage(crashImgage, this.x, this.y, this.width, this.height);
+                //     } else {
+                //         const frame = (timer % 60 > 30) ? runnerAImage : runnerBImage;
+                //         ctx.drawImage(frame, this.x, this.y, this.width, this.height);
+                //     }
                 }
             };
 
@@ -169,9 +169,9 @@
                     this.width = OBSTACLE_WIDTH;
                     this.height = OBSTACLE_HEIGHT;
                 }
-                draw() {
-                    ctx.drawImage(obstacleImage, this.x, this.y, this.width, this.height);
-                }
+                // draw() {
+                //     ctx.drawImage(obstacleImage, this.x, this.y, this.width, this.height);
+                // }
             }
 
             const obstacles = [];
@@ -278,7 +278,7 @@
 
 <body>
     <p id="subtitle">르탄이와 함께 최고점을 향하여!! 😀</p>
-    <p id="score">현재점수: 700000000000000000000000000000</p>
+    <p id="score">현재점수: 7000000000000000000000</p>
     <main>
         <canvas id="canvas"></canvas>
     </main>
